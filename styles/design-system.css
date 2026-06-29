@@ -1,0 +1,203 @@
+/*
+ * ============================================================
+ * ROYAL SWEET — DESIGN SYSTEM
+ * Centralized design tokens, spacing scale, shadow system,
+ * typography scale, and utility classes.
+ * ============================================================
+ */
+
+/* ─── Container System ──────────────────────────────────────── */
+:root {
+  --container-narrow:   860px;
+  --container-default: 1320px;
+  --container-wide:    1560px;
+  --container-px:      clamp(20px, 5vw, 80px);
+}
+
+/* ─── Spacing Scale ─────────────────────────────────────────── */
+:root {
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+}
+
+/* ─── Shadow Tokens ─────────────────────────────────────────── */
+:root {
+  --shadow-xs:  0 1px 3px rgba(45,37,30,0.06);
+  --shadow-sm:  0 4px 12px rgba(45,37,30,0.08);
+  --shadow-md:  0 8px 24px rgba(45,37,30,0.10);
+  --shadow-lg:  0 16px 48px rgba(45,37,30,0.12);
+  --shadow-xl:  0 24px 80px rgba(45,37,30,0.16);
+  --shadow-gold-sm: 0 4px 16px rgba(212,168,67,0.18);
+  --shadow-gold-md: 0 8px 32px rgba(212,168,67,0.22);
+  --shadow-gold-lg: 0 16px 56px rgba(212,168,67,0.28);
+}
+
+/* ─── Border Radius Tokens ──────────────────────────────────── */
+:root {
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:  12px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+}
+
+/* ─── Section Heading System ────────────────────────────────── */
+.section-label {
+  display: block;
+  font-family: var(--font-button);
+  font-size: clamp(0.6rem, 1vw, 0.75rem);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: var(--space-3);
+}
+
+.section-eyebrow {
+  display: block;
+  font-family: var(--font-cormorant);
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-style: italic;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-gold);
+  margin-bottom: var(--space-3);
+}
+
+/* ─── Card System ────────────────────────────────────────────── */
+.card-base {
+  background: #FFFFFF;
+  border: 1px solid rgba(212, 168, 67, 0.14);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.38s var(--ease-luxury),
+              box-shadow 0.38s var(--ease-luxury),
+              border-color 0.38s ease;
+}
+
+@media (min-width: 1024px) {
+  .card-base:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-gold-md);
+    border-color: rgba(212, 168, 67, 0.38);
+  }
+}
+
+/* ─── Grid Utilities ─────────────────────────────────────────── */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 3vw, 40px);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2.5vw, 32px);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(14px, 2vw, 24px);
+}
+
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .grid-4 { grid-template-columns: 1fr; }
+}
+
+/* ─── Section Header Utility ────────────────────────────────── */
+.section-header-center {
+  text-align: center;
+  margin-bottom: clamp(36px, 6vw, 64px);
+}
+
+/* ─── Flex Utilities ─────────────────────────────────────────── */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ─── Input Base ─────────────────────────────────────────────── */
+.input-luxury {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 12px 18px;
+  border: 1px solid rgba(45, 37, 30, 0.14);
+  border-radius: var(--radius-md);
+  background: #FFFFFF;
+  color: var(--text-ivory);
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  width: 100%;
+}
+
+.input-luxury:focus {
+  border-color: var(--saffron);
+  box-shadow: 0 0 0 3px rgba(255, 153, 51, 0.12);
+}
+
+/* ─── Step Badge ─────────────────────────────────────────────── */
+.step-badge {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--saffron);
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-button);
+  flex-shrink: 0;
+}
+
+/* ─── Responsive Container ───────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--container-default);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-px);
+  padding-right: var(--container-px);
+  box-sizing: border-box;
+}
+
+.container--wide {
+  max-width: var(--container-wide);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
